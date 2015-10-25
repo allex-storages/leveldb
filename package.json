@@ -1,0 +1,21 @@
+{
+  "name": "allex_leveldbstorage",
+  "version": "0.1.0",
+  "description": "AllexJS storage based on leveldb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.hers.rs:allex_storages/leveldb.git"
+  },
+  "keywords": [
+    "ecosystem:AllexJS",
+    "storage",
+    "leveldb",
+    "DataService"
+  ],
+  "author": "HERS Belgrade",
+  "license": "ISC"
+}
