@@ -35,6 +35,21 @@ function realCreator(execlib, defer, leveldblib) {
       dbname: this.propertyhash.dbname
     });
   };
+  LevelDBStorage.prototype._destroyDataWithElements = function () {
+    this.data.destroy();
+  };
+  LevelDBStorage.prototype._traverseData = function (cb) {
+    this.data.traverse(cb);
+  };
+  LevelDBStorage.prototype._traverseDataRange = function (cb, start, endexclusive) {
+    this.data.traverse(cb, {gte:start, lt:endexclusive});
+  };
+  LevelDBStorage.prototype._removeDataAtIndex = function (data, index) {
+    data.del(index);
+  };
+  LevelDBStorage.prototype._traverseConditionally = function (cb) {
+    this.data.traverseConditionally(cb);
+  };
 
   defer.resolve(LevelDBStorage);
 }
