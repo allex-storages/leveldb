@@ -54,14 +54,10 @@ function realCreator(defer, execlib, bufferlib, leveldblib) {
     this.propertyhash = null;
   };
   LevelDBStorage.prototype._createData = function () {
-    var d = q.defer();
-    d.promise.then(
-      this.setReady.bind(this, true)
-    );
     this.encoding = new Encoding(this.__record);
     return new leveldblib.DBArray(lib.extend(this.propertyhash || {}, {
       dbname: this.propertyhash.dbname,
-      starteddefer: d,
+      starteddefer: this.readyDefer,
       dbcreationoptions: {
         keyEncoding: leveldblib.Int32Codec,
         valueEncoding: this.encoding.getCodec()
